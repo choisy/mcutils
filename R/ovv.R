@@ -57,21 +57,23 @@ ovv <- function(x, digits = 4, interspace = 3) {
 #' @importFrom utils head tail
 #' @method ovv data.frame
 #' @export
-ovv.data.frame <- function(x, digits = 4, interspace = 3) {
-  h <- head(x)
-  t <- tail(x)
-  hn <- rownames(h)
-  tn <- rownames(t)
-  h %<>% mutate_if(is.numeric, round, digits = digits)
-  t %<>% mutate_if(is.numeric, round, digits = digits)
-  h %<>% mutate_all(as.character)
-  t %<>% mutate_all(as.character)
-  m <- setNames(as.data.frame(matrix(".", interspace, ncol(x)),
-                              stringsAsFactors = FALSE), names(x))
-  out <- bind_rows(h, m, t)
-  out <- cbind(c(hn, rep(".", interspace), tn), out)
-  names(out)[1] <- ""
-  print(out, row.names = FALSE)
+ovv.data.frame <- function(x, n = 6L, digits = 4L, interspace = 3L) {
+  if (nrow(x) > 2 * n + interspace) {
+    h <- head(x)
+    t <- tail(x)
+    hn <- rownames(h)
+    tn <- rownames(t)
+    h %<>% mutate_if(is.numeric, round, digits = digits)
+    t %<>% mutate_if(is.numeric, round, digits = digits)
+    h %<>% mutate_all(as.character)
+    t %<>% mutate_all(as.character)
+    m <- setNames(as.data.frame(matrix(".", interspace, ncol(x)),
+                                stringsAsFactors = FALSE), names(x))
+    out <- bind_rows(h, m, t)
+    out <- cbind(c(hn, rep(".", interspace), tn), out)
+    names(out)[1] <- ""
+    print(out, row.names = FALSE)
+  } else print(x)
   invisible(x)
 }
 
