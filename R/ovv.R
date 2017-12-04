@@ -43,7 +43,7 @@
 #'
 #' @export
 #' @author Marc Choisy
-ovv <- function(x, digits = 4, interspace = 3) {
+ovv <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   UseMethod("ovv")
 }
 
@@ -82,7 +82,7 @@ ovv.data.frame <- function(x, n = 6L, digits = 4L, interspace = 3L) {
 
 #' @method ovv matrix
 #' @export
-ovv.matrix <- function(x, digits = 4, interspace = 3) {
+ovv.matrix <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(as.data.frame(x), digits, interspace)
 }
 
@@ -91,6 +91,6 @@ ovv.matrix <- function(x, digits = 4, interspace = 3) {
 
 #' @method ovv table
 #' @export
-ovv.table <- function(x, digits = 4, interspace = 3) {
+ovv.table <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(unclass(x), digits, interspace)
 }

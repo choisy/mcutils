@@ -4,7 +4,7 @@
 \alias{ovv}
 \title{Overview of a data frame.}
 \usage{
-ovv(x, digits = 4, interspace = 3)
+ovv(x, n = 6L, digits = 4L, interspace = 3L)
 }
 \arguments{
 \item{x}{a data frame, matrix or table.}
