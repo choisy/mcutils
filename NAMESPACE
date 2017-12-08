@@ -3,6 +3,7 @@
 S3method(ovv,data.frame)
 S3method(ovv,matrix)
 S3method(ovv,table)
+export(breaks)
 export(ovv)
 importFrom(dplyr,bind_rows)
 importFrom(dplyr,mutate_all)
