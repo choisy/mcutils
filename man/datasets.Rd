@@ -7,12 +7,15 @@
 datasets(pkg)
 }
 \arguments{
-\item{pkg}{the name of a package}
+\item{pkg}{the name of a package.}
 }
 \description{
-Shows the datasets of a package
+Shows the datasets of a package.
 }
 \details{
 Returns a character vector containing the names of the datasets in the
-package given as the argument
+package given as the argument.
+}
+\author{
+Marc Choisy.
 }
