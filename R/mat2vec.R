@@ -7,6 +7,7 @@
 #' @param margin indicates whether NA values separate the rows (margin = 1) or
 #'               the columns (margin = 2). Default value is 2
 #' @export
+#' @author Marc Choisy
 #'
 mat2vec <- function(mat, margin = 2) {
   if(margin < 2) mat <- t(mat)
