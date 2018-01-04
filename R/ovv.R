@@ -11,6 +11,7 @@
 #' @param interspace integer indicating the number of dots to print between the
 #'                   head and the tail of the object.
 #' @return Invisibly return the input data frame.
+#' @author Marc Choisy
 #' @examples
 #' # overviews of data.frames:
 #' ovv(mtcars)

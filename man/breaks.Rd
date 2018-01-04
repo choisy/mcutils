@@ -21,3 +21,6 @@ y <- cut(x, breaks = -6:6)
 breaks(y)
 
 }
+\author{
+Marc Choisy
+}

@@ -7,6 +7,7 @@
 #' @return a numeric vector of break values.
 #'
 #' @export
+#' @author Marc Choisy
 #'
 #' @examples
 #' x <- rnorm(10000)

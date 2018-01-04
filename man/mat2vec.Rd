@@ -16,3 +16,6 @@ the columns (margin = 2). Default value is 2}
 \code{mat2vec} converts a matrix to a NA-separated vector where the NA
 values separate either rows or columns.
 }
+\author{
+Marc Choisy
+}
