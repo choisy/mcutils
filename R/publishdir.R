@@ -10,6 +10,10 @@
 #'
 #' @export
 publishdir <- function(toml) {
+  if (missing(toml)) toml <- grep("\\.toml$", dir(), value = TRUE)
+  if (length(toml) < 1) stop("There is no TOML file in the working directory.")
+  if (length(toml) > 1) stop(paste("There are more than one TOML file in the",
+                                   "working directory. Choose one of them."))
   toml <- readtext(toml, verbosity = 0)
   toml <- strsplit(toml$text, "\n")[[1]]
   toml <- grep("publishDir", toml, value = TRUE)
