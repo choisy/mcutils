@@ -13,5 +13,5 @@ publishdir <- function(toml) {
   toml <- readtext(toml, verbosity = 0)
   toml <- strsplit(toml$text, "\n")[[1]]
   toml <- grep("publishDir", toml, value = TRUE)
-  strsplit(toml, "\n")[[1]][2]
+  strsplit(toml, "\"")[[1]][2]
 }
