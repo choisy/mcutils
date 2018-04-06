@@ -98,8 +98,8 @@ ovv.table <- function(x, n = 6L, digits = 4L, interspace = 3L) {
 
 # tibble method -----------------------------------------------------------------
 
-#' @method ovv table
+#' @method ovv tbl_df
 #' @export
 ovv.tbl_df <- function(x, n = 6L, digits = 4L, interspace = 3L) {
-  ovv(data.frame(x), n, digits, interspace)
+  ovv(as.data.frame(x), n, digits, interspace)
 }

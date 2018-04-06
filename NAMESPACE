@@ -3,6 +3,7 @@
 S3method(ovv,data.frame)
 S3method(ovv,matrix)
 S3method(ovv,table)
+S3method(ovv,tbl_df)
 export(breaks)
 export(datasets)
 export(full_seq2)
