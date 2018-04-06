@@ -95,3 +95,11 @@ ovv.matrix <- function(x, n = 6L, digits = 4L, interspace = 3L) {
 ovv.table <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(unclass(x), n, digits, interspace)
 }
+
+# tibble method -----------------------------------------------------------------
+
+#' @method ovv table
+#' @export
+ovv.tbl_df <- function(x, n = 6L, digits = 4L, interspace = 3L) {
+  ovv(data.frame(x), n, digits, interspace)
+}
