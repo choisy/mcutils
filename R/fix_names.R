@@ -7,6 +7,7 @@
 #'
 #' @param x a vector of characters.
 #' @return A vector of characters, the corrected version of the x input.
+#' @export
 #' @author Marc Choisy
 #' @examples
 #' fix_names(c("Soc T rang", "SOn ia", "Son ia"))
