@@ -24,7 +24,7 @@ projVN <- sp::CRS("+proj=utm +zone=48 +ellps=WGS84 +units=m +no_defs")
 dictionary <- setNames(data.frame(matrix(c(
                                            "Ba ria - Vung tau",  "Ba Ria - Vung Tau",
                                            "Bac can"          ,  "Bac Kan",
-                                           "Ha noi II"        ,  "Ha Tay"
+                                           "Ha noi II"        ,  "Ha Tay",
                                            "Hanoi"            ,  "Ha Noi",
                                            "Soc T rang"       ,  "Soc Trang",
                                            "SOn ia"           ,  "Son La",
@@ -33,14 +33,14 @@ dictionary <- setNames(data.frame(matrix(c(
                                            "TP Ho Chi Minh"   ,  "Ho Chi Minh",
                                            "Tp. Ho Chi Minh"  ,  "Ho Chi Minh",
                                            "Vinh iong"        ,  "Vinh Long",
-                                           "Vung Tau - Ba Ria",  "Ba Ria - Vung Tau",
+                                           "Vung Tau - Ba Ria",  "Ba Ria - Vung Tau"
                                           ), ncol = 2, byrow = TRUE),
                                   stringsAsFactors = FALSE), c("from", "to"))
 
 
 # Saving to disk (internal) ----------------------------------------------------
-devtools::use_data(to_latin, internal = TRUE, overwrite = TRUE)
+devtools::use_data(to_latin, dictionary, internal = TRUE, overwrite = TRUE)
 
 
 # Saving to disk (external) ----------------------------------------------------
-devtools::use_data(proj0, projVN, dictionary, overwrite = TRUE)
+devtools::use_data(proj0, projVN, overwrite = TRUE)
