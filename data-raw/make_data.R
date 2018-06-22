@@ -21,10 +21,19 @@ projVN <- sp::CRS("+proj=utm +zone=48 +ellps=WGS84 +units=m +no_defs")
 
 
 # Dictionary -------------------------------------------------------------------
-dictionary <- setNames(data.frame(matrix(c("Hanoi",              "Ha Noi",
-                                           "Thua Thien - Hue",   "Thua Thien Hue",
-                                           "Tp. Ho Chi Minh",    "Ho Chi Minh",
-                                           "Vung Tau - Ba Ria",  "Ba Ria - Vung Tau"
+dictionary <- setNames(data.frame(matrix(c(
+                                           "Ba ria - Vung tau",  "Ba Ria - Vung Tau",
+                                           "Bac can"          ,  "Bac Kan",
+                                           "Ha noi II"        ,  "Ha Tay"
+                                           "Hanoi"            ,  "Ha Noi",
+                                           "Soc T rang"       ,  "Soc Trang",
+                                           "SOn ia"           ,  "Son La",
+                                           "Son ia"           ,  "Son La",
+                                           "Thua Thien - Hue" ,  "Thua Thien Hue",
+                                           "TP Ho Chi Minh"   ,  "Ho Chi Minh",
+                                           "Tp. Ho Chi Minh"  ,  "Ho Chi Minh",
+                                           "Vinh iong"        ,  "Vinh Long",
+                                           "Vung Tau - Ba Ria",  "Ba Ria - Vung Tau",
                                           ), ncol = 2, byrow = TRUE),
                                   stringsAsFactors = FALSE), c("from", "to"))
 
