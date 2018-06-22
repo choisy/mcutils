@@ -1,3 +1,4 @@
+# Vietnamese letters -----------------------------------------------------------
 tmp <- read.table("data-raw/vietnamese_letters.txt")
 latin_letters <- c(rep("A", 17),
                        "D",
@@ -12,4 +13,13 @@ latin_letters <- c(rep("A", 17),
                    rep("u", 11),
                    rep("i",  5))
 to_latin <- data.frame(tmp, latin_letters)
+
+# Geographical projections -----------------------------------------------------
+proj0 <- sp::CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs +towgs84=0,0,0")
+projVN <- sp::CRS("+proj=utm +zone=48 +ellps=WGS84 +units=m +no_defs")
+
+# Saving to disk (internal) ----------------------------------------------------
 devtools::use_data(to_latin, internal = TRUE, overwrite = TRUE)
+
+# Saving to disk (external) ----------------------------------------------------
+devtools::use_data(proj0, projVN, overwrite = TRUE)
