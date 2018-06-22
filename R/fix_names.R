@@ -15,5 +15,6 @@ fix_names <- function(x) {
   dictionary <- dictionary[dictionary$from %in% x, ]
   attach(dictionary)
   for(i in 1:nrow(dictionary)) x <- sub(from[i], to[i], x)
+  detach()
   x
 }
