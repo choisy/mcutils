@@ -42,6 +42,13 @@
 #' # an overview of its table:
 #' ovv(table(cal))
 #'
+#' # A SpatialPointsDataFrame
+#' library(sf)
+#' stations <- as(imhen::stations, "Spatial")
+#' stations
+#' class(stations)
+#' ovv(stations)
+#'
 #' @export
 #' @author Marc Choisy
 ovv <- function(x, n = 6L, digits = 4L, interspace = 3L) {

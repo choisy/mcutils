@@ -55,6 +55,13 @@ cal <- 10:17 \%>\%
 # an overview of its table:
 ovv(table(cal))
 
+# A SpatialPointsDataFrame
+library(sf)
+stations <- as(imhen::stations, "Spatial")
+stations
+class(stations)
+ovv(stations)
+
 }
 \author{
 Marc Choisy
