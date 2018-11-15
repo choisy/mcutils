@@ -42,6 +42,13 @@
 #' # an overview of its table:
 #' ovv(table(cal))
 #'
+#' # A SpatialPointsDataFrame
+#' library(sf)
+#' stations <- as(imhen::stations, "Spatial")
+#' stations
+#' class(stations)
+#' ovv(stations)
+#'
 #' @export
 #' @author Marc Choisy
 ovv <- function(x, n = 6L, digits = 4L, interspace = 3L) {
@@ -60,6 +67,7 @@ ovv <- function(x, n = 6L, digits = 4L, interspace = 3L) {
 #' @export
 ovv.data.frame <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   if (nrow(x) > 2 * n + interspace) {
+    x %<>% mutate_if(~ class(.) == "units", ~ print_units(.))
     h <- head(x, n)
     t <- tail(x, n)
     hn <- rownames(h)
@@ -96,10 +104,23 @@ ovv.table <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(unclass(x), n, digits, interspace)
 }
 
-# tibble method -----------------------------------------------------------------
+# tibble method ----------------------------------------------------------------
 
 #' @method ovv tbl_df
 #' @export
 ovv.tbl_df <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(as.data.frame(x), n, digits, interspace)
 }
+
+# default method ---------------------------------------------------------------
+
+#' @method ovv default
+#' @export
+ovv.default <- function(x, n = 6L, digits = 4L, interspace = 3L) {
+  the_class <- class(x)
+  if (the_class == "SpatialPointsDataFrame") {
+    coord <- round(x@coords, 4)
+    ovv(data.frame(coordinates = paste0("(", paste(coord[, 1], coord[, 2], sep = ", "), ")"), stations@data))
+  } else error(paste0("No ovv method for an object of class ", the_class, "."))
+}
+
