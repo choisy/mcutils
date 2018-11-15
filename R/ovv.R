@@ -97,10 +97,23 @@ ovv.table <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(unclass(x), n, digits, interspace)
 }
 
-# tibble method -----------------------------------------------------------------
+# tibble method ----------------------------------------------------------------
 
 #' @method ovv tbl_df
 #' @export
 ovv.tbl_df <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   ovv(as.data.frame(x), n, digits, interspace)
 }
+
+# default method ---------------------------------------------------------------
+
+#' @method ovv default
+#' @export
+ovv.default <- function(x, n = 6L, digits = 4L, interspace = 3L) {
+  the_class <- class(x)
+  if (the_class == "SpatialPointsDataFrame") {
+    coord <- round(x@coords, 4)
+    ovv(data.frame(coordinates = paste0("(", paste(coord[, 1], coord[, 2], sep = ", "), ")"), stations@data))
+  } else error(paste0("No ovv method for an object of class ", the_class, "."))
+}
+
