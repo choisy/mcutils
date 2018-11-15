@@ -60,6 +60,7 @@ ovv <- function(x, n = 6L, digits = 4L, interspace = 3L) {
 #' @export
 ovv.data.frame <- function(x, n = 6L, digits = 4L, interspace = 3L) {
   if (nrow(x) > 2 * n + interspace) {
+    x %<>% mutate_if(~ class(.) == "units", ~ print_units(.))
     h <- head(x, n)
     t <- tail(x, n)
     hn <- rownames(h)
