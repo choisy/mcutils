@@ -1,5 +1,5 @@
 print_units <- function(x) {
-  un <- units(a$elevation)
+  un <- units(x)
   numerator <- un$numerator
   denominator <- un$denominator
   if (length(numerator) > 0) {
